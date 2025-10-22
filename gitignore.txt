@@ -1,0 +1,5 @@
+# Arquivos de ambiente
+.env
+
+# Dependências do Node (grande e desnecessária no repo)
+/node_modules
