@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow MVP - Gerenciador de Tarefas</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        .tarefa-card {
+            /* Adicione uma margem inferior para separar os cards */
+            margin-bottom: 1rem; 
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+
+    <header class="bg-indigo-600 text-white p-4 shadow-md">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
+            <h1 class="text-3xl font-extrabold">TaskFlow</h1>
+            <button id="abrir-modal-nova-tarefa"
+                    class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded transition duration-200">
+                + Nova Tarefa
+            </button>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto p-4 sm:p-6 lg:p-8">
+        <h2 class="text-2xl font-bold mb-6 text-gray-800">Minhas Tarefas</h2>
+        
+        <div id="lista-tarefas" class="space-y-4">
+            </div>
+    </main>
+
+    <div id="modal-tarefa" class="fixed inset-0 bg-gray-600 bg-opacity-75 flex items-center justify-center z-50 hidden">
+        <div class="bg-white p-6 rounded-lg shadow-2xl max-w-md w-full">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold" id="modal-titulo">Criar Nova Tarefa</h3>
+                <button id="fechar-modal" class="text-gray-500 hover:text-gray-800 text-2xl">&times;</button>
+            </div>
+            
+            <form id="form-tarefa" class="space-y-4">
+                <input type="hidden" id="tarefa-id">
+                
+                <div>
+                    <label for="titulo" class="block text-sm font-medium text-gray-700">Título</label>
+                    <input type="text" id="titulo" placeholder="Ex: Terminar MVP" required
+                           class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
+                </div>
+                
+                <div>
+                    <label for="descricao" class="block text-sm font-medium text-gray-700">Descrição</label>
+                    <textarea id="descricao" placeholder="Detalhes do desenvolvimento..."
+                              class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"></textarea>
+                </div>
+
+                <div>
+                    <label for="prioridade" class="block text-sm font-medium text-gray-700">Prioridade</label>
+                    <select id="prioridade" required
+                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
+                        <option value="Alta">Alta</option>
+                        <option value="Média">Média</option>
+                        <option value="Baixa">Baixa</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 rounded-md">
+                    Salvar Tarefa
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
